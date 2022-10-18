@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mapa</title>
+    <script src=" https://unpkg.com/leaflet@1.6.0/dist/leaflet.js "></script>
+    <link rel="stylesheet" href=" https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <style>
+        #map {
+            width: 100%;
+            height: 580px;
+            box-shadow: 5px 5px 5px #888;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='map'></div>
+
+    
+    <script>
+
+
+
+
+
+
+
+        var map = L.map('map', {
+            center: [1.6202127952002583, -75.60439507820318],
+            zoom: 14,
+            layers: osm,
+            scrollWheelZoom: true,
+        });
+        var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution:
+                '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
+                + 'contributors',
+            maxZoom: 20
+        }).addTo(map);
+       
+        L.control.scale().addTo(map);
+
+
+        var marker = L.marker([1.6202127952002583, -75.60439507820318], {
+            draggable: true,
+            title: 'pincha aquí'
+        }).addTo(map)
+            .bindPopup('Universidad de la Amazonia')
+            .openPopup();
+
+        // var myIcon = L.icon({
+        //     iconUrl: ' http://mappinggis.com/wp-content/uploads/2015/03/logo_mappinggis_32331.png',
+        //     iconSize: [30, 30],
+        //     popupAnchor: [-1, -10]
+        // });
+
+        // var marker2 = L.marker([1.6202127952002583, -75.60439507820318], { icon: myIcon })
+        //     .addTo(map)
+        //     .bindPopup("Localización de Universidad de la Amazonia");
+
+
+
+        //Añadir un círculo
+        var circle = L.circle([1.6152146182828282, -75.61387073217894], 500, {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.5
+        }).addTo(map);
+
+
+
+        var marker = L.marker([1.6152146182828282, -75.61387073217894], {
+            draggable: true,
+            title: 'pincha aquí'
+        }).addTo(map)
+            .bindPopup('Alcaldia de Florencia - Caquetá')
+            .openPopup();
+
+
+
+        //Añadir un polígono
+        var polygon = L.polygon([
+            [1.615176568332512, -75.61369542097964],
+            [1.6145234908541244, -75.61349682957356],
+            [1.6147018644580986, -75.6128262238365],
+            [1.615398096766211, -75.61304784032205]
+
+        ]).addTo(map)
+            .bindPopup('Parque Santander');
+
+
+        var marker = L.marker([1.6150701195955843, -75.61330975072742], {
+            draggable: true,
+            title: 'pincha aquí'
+        }).addTo(map)
+            .bindPopup('Parque Santander')
+            .openPopup();
+
+        var marker = L.marker([1.6072133216016333, -75.60109836046834], {
+            draggable: true,
+            title: 'pincha aquí'
+        }).addTo(map)
+            .bindPopup('Mi casa - <b> YEINNER STIBEN GUEZGUAN TRUJILLO </b>')
+            .openPopup();
+
+
+
+        
+        var pointLL = new L.LatLng(1.6072133216016333, -75.60109836046834);
+        var pointMM = new L.LatLng(1.6072454954464894, -75.60157042922394);
+        var pointOO = new L.LatLng(1.6083715797069011, -75.6039683240248);
+        var pointPP = new L.LatLng(1.6085646226648593, -75.60435456213315);
+        var pointQQ = new L.LatLng(1.6089614331200515, -75.60427946028568);
+        var pointRR = new L.LatLng(1.609803314524746, -75.60410243448507);
+        var pointSS = new L.LatLng(1.6103449068349804, -75.60413998541691);
+        var pointTT = new L.LatLng(1.6113530188731906, -75.6049875634794);
+        var pointUU = new L.LatLng(1.61221634847036, -75.60572248875442);
+        var pointVV = new L.LatLng(1.6128544614098377, -75.60614627777348);
+        var pointWW = new L.LatLng(1.6135783707928961, -75.60590487897801);
+        var pointXX = new L.LatLng(1.6146722778417582, -75.60475152912943);
+        var pointYY = new L.LatLng(1.6154069111749523, -75.60411852779802);
+        var pointZZ = new L.LatLng(1.6166402365898958, -75.60496610583263);
+        var pointAAA = new L.LatLng(1.6180451541986913, -75.60583514155066);
+        var pointBBB = new L.LatLng(1.6188494959155637, -75.60643595636931);
+        var pointCCC = new L.LatLng(1.6199005019062356, -75.60543281026365);
+        var pointDDD = new L.LatLng(1.620131079692179, -75.6051270384021);
+        var pointEEE = new L.LatLng(1.6200560078623119, -75.60462814755812);
+
+        var latlngs = [  pointLL, pointMM,
+            pointOO, pointPP, pointQQ, pointRR, pointSS, pointTT, pointUU, pointVV, pointWW, pointXX, pointYY, pointZZ,
+            pointAAA, pointBBB, pointCCC, pointDDD, pointEEE];
+        var polyline = L.polyline(
+            latlngs, { color: 'black' }
+        )
+            .addTo(map)
+            .bindPopup('Carera #5D Manzana 1');
+
+
+
+
+
+
+    </script>
+</body>
